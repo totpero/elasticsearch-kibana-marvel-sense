@@ -17,7 +17,7 @@ RUN wget -q -O - http://artifacts.elastic.co/downloads/elasticsearch/elasticsear
  && mv elasticsearch-${ES_VERSION} elasticsearch \
  && wget -q -O - http://artifacts.elastic.co/downloads/kibana/kibana-${KIBANA_VERSION}-linux-x86_64.tar.gz \
  |  tar -zx \
- && mv kibana-${KIBANA_VERSION}-linux-x64 kibana \
+ && mv kibana-${KIBANA_VERSION}-linux-x86_64 kibana \
  && rm -f kibana/node/bin/node kibana/node/bin/npm \
  && ln -s $(which node) kibana/node/bin/node \
  && ln -s $(which npm) kibana/node/bin/npm \
