@@ -2,8 +2,8 @@ FROM java:jre-alpine
 
 MAINTAINER arcseldon <arcseldon@gmail.com>
 
-ENV ES_VERSION=2.3.5 \
-    KIBANA_VERSION=4.5.3
+ENV ES_VERSION=5.6.3 \
+    KIBANA_VERSION=5.6.3
 
 RUN apk add --quiet --no-progress --no-cache nodejs \
   && adduser -D elasticsearch
