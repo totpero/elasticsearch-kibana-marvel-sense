@@ -12,10 +12,10 @@ USER elasticsearch
 
 WORKDIR /home/elasticsearch
 
-RUN wget -q -O - https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${ES_VERSION}.tar.gz \
+RUN wget -q -O - http://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${ES_VERSION}.tar.gz \
  |  tar -zx \
  && mv elasticsearch-${ES_VERSION} elasticsearch \
- && wget -q -O - https://artifacts.elastic.co/downloads/kibana/kibana-${KIBANA_VERSION}-linux-x86_64.tar.gz \
+ && wget -q -O - http://artifacts.elastic.co/downloads/kibana/kibana-${KIBANA_VERSION}-linux-x86_64.tar.gz \
  |  tar -zx \
  && mv kibana-${KIBANA_VERSION}-linux-x64 kibana \
  && rm -f kibana/node/bin/node kibana/node/bin/npm \
