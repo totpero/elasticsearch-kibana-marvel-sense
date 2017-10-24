@@ -5,7 +5,7 @@ MAINTAINER arcseldon <arcseldon@gmail.com>
 ENV ES_VERSION=5.6.3 \
     KIBANA_VERSION=5.6.3
 
-RUN apk add --quiet --no-progress --no-cache nodejs \
+RUN apk add openssl --quiet --no-progress --no-cache nodejs \
   && adduser -D elasticsearch
 
 USER elasticsearch
