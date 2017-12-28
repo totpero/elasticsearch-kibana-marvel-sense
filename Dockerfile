@@ -1,23 +1,23 @@
 FROM java:jre-alpine
 
-MAINTAINER arcseldon <arcseldon@gmail.com>
+MAINTAINER totpero <www.totpe.ro@gmail.com>
 
-ENV ES_VERSION=2.3.5 \
-    KIBANA_VERSION=4.5.3
+ENV ES_VERSION=6.1.1 \
+    KIBANA_VERSION=6.1.1
 
-RUN apk add --quiet --no-progress --no-cache nodejs \
+RUN apk add openssl --quiet --no-progress --no-cache nodejs \
   && adduser -D elasticsearch
 
 USER elasticsearch
 
 WORKDIR /home/elasticsearch
 
-RUN wget -q -O - http://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/${ES_VERSION}/elasticsearch-${ES_VERSION}.tar.gz \
+RUN wget -q -O - http://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${ES_VERSION}.tar.gz \
  |  tar -zx \
  && mv elasticsearch-${ES_VERSION} elasticsearch \
- && wget -q -O - http://download.elastic.co/kibana/kibana/kibana-${KIBANA_VERSION}-linux-x64.tar.gz \
+ && wget -q -O - http://artifacts.elastic.co/downloads/kibana/kibana-${KIBANA_VERSION}-linux-x86_64.tar.gz \
  |  tar -zx \
- && mv kibana-${KIBANA_VERSION}-linux-x64 kibana \
+ && mv kibana-${KIBANA_VERSION}-linux-x86_64 kibana \
  && rm -f kibana/node/bin/node kibana/node/bin/npm \
  && ln -s $(which node) kibana/node/bin/node \
  && ln -s $(which npm) kibana/node/bin/npm \
