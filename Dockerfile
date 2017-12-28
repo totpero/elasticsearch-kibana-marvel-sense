@@ -2,8 +2,8 @@ FROM java:jre-alpine
 
 MAINTAINER arcseldon <arcseldon@gmail.com>
 
-ENV ES_VERSION=5.2.1 \
-    KIBANA_VERSION=6.1.1 \
+ENV ES_VERSION=5.6.2 \
+    KIBANA_VERSION=5.6.2 \
     FILE elasticsearch-$VERSION.tar.gz
 	
 RUN apk add openssl --quiet --no-progress --no-cache nodejs \
