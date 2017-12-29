@@ -22,10 +22,10 @@ RUN wget -q -O - https://artifacts.elastic.co/downloads/elasticsearch/elasticsea
  && ln -s $(which node) kibana/node/bin/node \
  && ln -s $(which npm) kibana/node/bin/npm
 
-#RUN ./elasticsearch/bin/plugin install license
-#RUN ./elasticsearch/bin/plugin install marvel-agent
-#RUN ./kibana/bin/kibana plugin --install elasticsearch/marvel/latest
-#RUN ./kibana/bin/kibana plugin --install elastic/sense 
+RUN ./elasticsearch/bin/plugin install license
+RUN ./elasticsearch/bin/plugin install marvel-agent
+RUN ./kibana/bin/kibana plugin --install elasticsearch/marvel/latest
+RUN ./kibana/bin/kibana plugin --install elastic/sense 
 
 CMD sh elasticsearch/bin/elasticsearch -E http.host=0.0.0.0 --quiet & kibana/bin/kibana --host 0.0.0.0 -Q
 
